@@ -35,7 +35,6 @@ import de.hybris.platform.commercefacades.quote.data.QuoteData;
 import de.hybris.platform.commercefacades.voucher.VoucherFacade;
 import de.hybris.platform.commercefacades.voucher.exceptions.VoucherOperationException;
 import de.hybris.platform.commerceservices.order.CommerceCartModificationException;
-import de.hybris.platform.commerceservices.order.CommerceCartModificationStatus;
 import de.hybris.platform.commerceservices.order.CommerceSaveCartException;
 import de.hybris.platform.commerceservices.security.BruteForceAttackHandler;
 import de.hybris.platform.core.enums.QuoteState;
@@ -379,17 +378,15 @@ public class CartPageController extends AbstractCartPageController
 			final Object[] attributes = new Object[]
 			{ XSSFilterUtil.filter(cartModification.getEntry().getProduct().getName()), Long.valueOf(cartModification.getQuantity()),
 					form.getQuantity(), request.getRequestURL().append(cartModification.getEntry().getProduct().getUrl()) };
-			if (cartModification.getStatusCode() != null && cartModification.getStatusCode()
-					.equals(CommerceCartModificationStatus.MAX_BUNDLE_SELECTION_CRITERIA_LIMIT_EXCEEDED))
-			{
-				GlobalMessages.addFlashMessage(redirectModel, GlobalMessages.ERROR_MESSAGES_HOLDER,
-						"basket.page.message.update.reducedNumberOfItemsAdded.limitExceeded", attributes);
-			}
-			else
-			{
+			/*
+			 * if (cartModification.getStatusCode() != null && cartModification.getStatusCode()
+			 * .equals(CommerceCartModificationStatus.MAX_BUNDLE_SELECTION_CRITERIA_LIMIT_EXCEEDED)) {
+			 * GlobalMessages.addFlashMessage(redirectModel, GlobalMessages.ERROR_MESSAGES_HOLDER,
+			 * "basket.page.message.update.reducedNumberOfItemsAdded.limitExceeded", attributes); } else {
+			 */
 				GlobalMessages.addFlashMessage(redirectModel, GlobalMessages.ERROR_MESSAGES_HOLDER,
 						"basket.page.message.update.reducedNumberOfItemsAdded.lowStock", attributes);
-			}
+			//}
 		}
 		else
 		{

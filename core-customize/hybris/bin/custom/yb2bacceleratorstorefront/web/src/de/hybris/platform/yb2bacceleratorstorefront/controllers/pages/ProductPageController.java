@@ -17,7 +17,7 @@ import de.hybris.platform.acceleratorstorefrontcommons.variants.VariantSortStrat
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.cms2.model.pages.AbstractPageModel;
 import de.hybris.platform.cms2.servicelayer.services.CMSPageService;
-import de.hybris.platform.commercefacades.futurestock.FutureStockFacade;
+//import de.hybris.platform.commercefacades.futurestock.FutureStockFacade;
 import de.hybris.platform.commercefacades.order.data.ConfigurationInfoData;
 import de.hybris.platform.commercefacades.product.ProductFacade;
 import de.hybris.platform.commercefacades.product.ProductOption;
@@ -109,8 +109,9 @@ public class ProductPageController extends AbstractPageController
 	@Resource(name = "reviewValidator")
 	private ReviewValidator reviewValidator;
 
-	@Resource(name = "futureStockFacade")
-	private FutureStockFacade futureStockFacade;
+	/*
+	 * @Resource(name = "futureStockFacade") private FutureStockFacade futureStockFacade;
+	 */
 
 	@Resource(name = "userFacade")
 	private UserFacade userFacade;
@@ -323,7 +324,7 @@ public class ProductPageController extends AbstractPageController
 		final boolean futureStockEnabled = isFutureStockEnabledForCurrentUser();
 		if (futureStockEnabled)
 		{
-			final List<FutureStockData> futureStockList = futureStockFacade.getFutureAvailability(productCode);
+			final List<FutureStockData> futureStockList = null;//futureStockFacade.getFutureAvailability(productCode);
 			if (futureStockList == null)
 			{
 				GlobalMessages.addErrorMessage(model, STOCK_SERVICE_UNAVAILABLE);
@@ -356,8 +357,8 @@ public class ProductPageController extends AbstractPageController
 		Map<String, Object> result = new HashMap<>();
 		if (futureStockEnabled && CollectionUtils.isNotEmpty(skus) && StringUtils.isNotBlank(productCode))
 		{
-			final Map<String, List<FutureStockData>> futureStockData = futureStockFacade
-					.getFutureAvailabilityForSelectedVariants(productCode, skus);
+			final Map<String, List<FutureStockData>> futureStockData = null;//futureStockFacade
+			//.getFutureAvailabilityForSelectedVariants(productCode, skus);
 
 			if (futureStockData == null)
 			{
