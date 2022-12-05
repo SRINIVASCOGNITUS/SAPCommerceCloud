@@ -43,9 +43,9 @@
 	  <extension name= 'b2bcommercefacades' />
 	  <extension name= 'b2bpunchout' />
 	  <extension name= 'b2bpunchoutaddon' />									
-      <extension name= 'b2bpunchoutbackoffice' />
+      <!--extension name= 'b2bpunchoutbackoffice' />
       <extension name= 'b2bpunchoutocc' />
-      <extension name= 'b2bpunchoutocctests' />											  
+      <extension name= 'b2bpunchoutocctests' /-->											  
 	  <extension name= 'apparelstore' />
 	  <extension name= 'electronicsstore' />
 	  <extension name= 'captchaaddon' />
@@ -219,7 +219,7 @@
 	  <extension name= 'personalizationsearchweb' />
 	  <extension name= 'adminapi' />
 	  <extension name= 'auditreportservices' />
-	  <extension name= 'azuredtu' />							 
+	  <!--extension name= 'azuredtu' /-->							 
 	  <extension name= 'deltadetection' />
 	  <extension name= 'embeddedserver' />
 	  <extension name= 'groovynature' />
@@ -308,9 +308,9 @@
 
 <!-- For more information where to find those extensions: -->
 <!-- https://launchpad.support.sap.com/#/notes/2817992 -->
-    <extension name='azurecloudhotfolder' />
+    <!--extension name='azurecloudhotfolder' />
     <extension name='cloudcommons' />
-    <extension name='cloudhotfolder' />
+    <extension name='cloudhotfolder' /-->
 
 
 <!-- Configuring Required Extensions and AddOns for SAP Commerce integration with SAP Cloud Platform Integration -->
