@@ -27,17 +27,17 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import junit.framework.Assert;
-
 import org.apache.commons.lang.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.ui.Model;
+
+import junit.framework.Assert;
 
 
 /**
@@ -106,9 +106,10 @@ public class CartSuggestionComponentControllerTest
 		given(Boolean.valueOf(cartSuggestionComponentModel.isFilterPurchased())).willReturn(Boolean.TRUE);
 		given(cartSuggestionComponentModel.getMaximumNumberProducts()).willReturn(Integer.valueOf(10));
 
-		given(
-				simpleSuggestionFacade.getSuggestionsForProductsInCart(Mockito.anyListOf(ProductReferenceTypeEnum.class),
-						Mockito.eq(true), Mockito.eq(10))).willReturn(productDataList);
+		/*
+		 * given( simpleSuggestionFacade.getSuggestionsForProductsInCart(Mockito.anyListOf(ProductReferenceTypeEnum.class),
+		 * Mockito.eq(true), Mockito.eq(10))).willReturn(productDataList);
+		 */
 		given(request.getAttribute(COMPONENT)).willReturn(cartSuggestionComponentModel);
 
 		final String viewName = cartSuggestionComponentController.handleGet(request, response, model);
@@ -129,9 +130,10 @@ public class CartSuggestionComponentControllerTest
 				Arrays.asList(ProductReferenceTypeEnum.ACCESSORIES));
 		given(Boolean.valueOf(cartSuggestionComponentModel.isFilterPurchased())).willReturn(Boolean.TRUE);
 
-		given(
-				simpleSuggestionFacade.getSuggestionsForProductsInCart(Mockito.anyListOf(ProductReferenceTypeEnum.class),
-						Mockito.eq(true), Mockito.eq(1))).willReturn(productDataList);
+		/*
+		 * given( simpleSuggestionFacade.getSuggestionsForProductsInCart(Mockito.anyListOf(ProductReferenceTypeEnum.class),
+		 * Mockito.eq(true), Mockito.eq(1))).willReturn(productDataList);
+		 */
 
 		final String viewName = cartSuggestionComponentController.handleGet(request, response, model);
 		verify(model, Mockito.times(1)).addAttribute(COMPONENT, cartSuggestionComponentModel);

@@ -3,13 +3,14 @@
  */
 package de.hybris.platform.yb2bacceleratorstorefront.controllers.pages;
 
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+
 
 import de.hybris.bootstrap.annotations.UnitTest;
 import de.hybris.platform.acceleratorservices.data.RequestContextData;
@@ -21,7 +22,7 @@ import de.hybris.platform.acceleratorstorefrontcommons.variants.VariantSortStrat
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.cms2.servicelayer.services.CMSPageService;
 import de.hybris.platform.cms2.servicelayer.services.CMSPreviewService;
-import de.hybris.platform.commercefacades.futurestock.FutureStockFacade;
+//import de.hybris.platform.commercefacades.futurestock.FutureStockFacade;
 import de.hybris.platform.commercefacades.product.ProductFacade;
 import de.hybris.platform.commercefacades.product.data.ProductData;
 import de.hybris.platform.commercefacades.user.UserFacade;
@@ -50,6 +51,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @UnitTest
 @RunWith(HybrisJUnit4ClassRunner.class)
+
 public class ProductPageControllerTest extends HybrisJUnit4Test
 {
 	private static final String PRODUCT_CODE = "ABC+ ^%$#@!*&%2B";
@@ -75,8 +77,9 @@ public class ProductPageControllerTest extends HybrisJUnit4Test
 	@Mock
 	private ReviewValidator reviewValidator;
 
-	@Mock
-	private FutureStockFacade futureStockFacade;
+	/*
+	 * @Mock private FutureStockFacade futureStockFacade;
+	 */
 
 	@Mock
 	private PageTitleResolver pageTitleResolver;
